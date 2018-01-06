@@ -185,17 +185,22 @@ class ReactComp extends Component {
       return (<ActivityIndicator style={{marginTop: 80}}/>);
     }
     return (
-      <FlatList
-        ref={(c) => this.list = c}
-        style={this.props.style}
-        renderItem={this.renderRow.bind(this)}
-        data={this.state.reservations}
-        onScroll={this.onScroll.bind(this)}
-        showsVerticalScrollIndicator={false}
-        scrollEventThrottle={200}
-        onMoveShouldSetResponderCapture={() => {this.onListTouch(); return false;}}
-        keyExtractor={(item, index) => index}
-      />
+      <View>
+        <View style={this.styles.children}>
+          {this.props.children}
+        </View>
+        <FlatList
+          ref={(c) => this.list = c}
+          style={this.props.style}
+          renderItem={this.renderRow.bind(this)}
+          data={this.state.reservations}
+          onScroll={this.onScroll.bind(this)}
+          showsVerticalScrollIndicator={false}
+          scrollEventThrottle={200}
+          onMoveShouldSetResponderCapture={() => {this.onListTouch(); return false;}}
+          keyExtractor={(item, index) => index}
+        />
+      </View>
     );
   }
 }

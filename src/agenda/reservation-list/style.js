@@ -30,6 +30,11 @@ export default function styleConstructor(theme = {}) {
     today: {
       color: appStyle.agendaTodayColor
     },
+    children: {
+      backgroundColor: '#FFF',
+      paddingBottom: 10,
+      paddingTop: 18,
+    },
     ...(theme[STYLESHEET_ID] || {})
   });
 }
